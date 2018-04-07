@@ -8,16 +8,20 @@ function HashSet(T){
 	this.Add = function(obj){
 		if(obj != null){
 			if(typeof(obj) == this.type){
-				this.hashSet.push(obj);
+				if(!this.hashSet.Contains(obj)){
+					this.hashSet.push(obj);
+				} else {
+					console.log("HashSet already contains value of " + obj.toString())
+				}
 			} else {
 				console.log("Object attempted to be inserted, " + obj.toString() +", is not of type " + this.type + ", and therefore can not be inserted into this HashSet");
 			}
 		}
 	}
 	
-	//removes a given value from the has set
+	//removes a given value from the hashSet
 	this.Remove = function(obj){
-		if(value != null){
+		if(obj != null){
 			length = this.Count();
 			for(i=0;i<length;i++){
 				if(this.hashSet[i] == obj){

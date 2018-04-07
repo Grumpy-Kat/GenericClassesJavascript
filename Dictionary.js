@@ -9,7 +9,11 @@ function Dictionary(TKey,TValue){
 	this.Add = function(key,value){
 		if(key != null && value != null){
 			if(typeof(key) == this.typeKey && typeof(value) == this.typeValue){
-				this.dictionary.push([key,value]);
+				if(!this.dictionary.ContainsKey(key)){
+					this.dictionary.push([key,value]);
+				} else {
+					console.log("Dictionary already contains key of " + key.toString())
+				}
 			} else {
 				console.log("Object attempted to be inserted, with key " + key.toString() + " and value " + value.toString() +", is not of type " + this.typeKey + " and " + this.typeValue + ", and therefore can not be inserted into this Dictionary");
 			}
